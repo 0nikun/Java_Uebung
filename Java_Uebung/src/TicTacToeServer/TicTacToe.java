@@ -32,7 +32,8 @@ public class TicTacToe {
 	public Boolean winCondition() {
 		for (Boolean[] row : gamefield) { // drei gleiche in einer Zeile
 			Boolean zeichen = row[0];
-			if (row[1] == zeichen == row[2])
+			
+			if (zeichen.equals(row[2]) && zeichen.equals(row[1]))
 				return zeichen;
 		}
 		for (int spalte = 0; spalte < gamefield.length; spalte++) { // drei in einer Spalte
@@ -53,11 +54,15 @@ public class TicTacToe {
 	public static void main(String[] args) {
 
 		TicTacToe game1 = new TicTacToe();
+		//System.out.println(game1.winCondition());
 		game1.gamefield[0][0] = true;
+		game1.gamefield[2][1] = true;
+		game1.gamefield[0][2] = true;
 		game1.gamefield[1][1] = false;
 		game1.gamefield[2][2] = true;
+		
 
 		game1.printGamefield();
-
+		System.out.println(game1.winCondition());
 	}
 }
